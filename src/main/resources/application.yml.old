@@ -1,0 +1,29 @@
+#
+#Versão 1 - Antes estava declarando no arquivo, depois mudei para .env
+#spring.datasource.url=jdbc:postgresql://pgamitta:5432/postgres
+#spring.datasource.username=sa_amitta
+#spring.datasource.password=1822
+
+# Versão 2 - Declarando as variáveis de ambiente no .env
+#spring.datasource.url=jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+#spring.datasource.username=${POSTGRES_USER}
+#spring.datasource.password=${POSTGRES_PASSWORD}
+#spring.datasource.driver-class-name=org.postgresql.Driver
+#spring.jpa.hibernate.ddl-auto=update
+#spring.jpa.show-sql=true
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# Versão 3 - Declarando as variáveis de ambiente no .env mas em formato .yml
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect

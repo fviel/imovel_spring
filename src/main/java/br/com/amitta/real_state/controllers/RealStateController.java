@@ -34,8 +34,8 @@ public class RealStateController {
     @GetMapping("/{id}")
     public ResponseEntity<RealState> getById(@PathVariable UUID id) {
         return repository.findById(id)
-            .map(ResponseEntity::ok)
-            .orElse(ResponseEntity.notFound().build());
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
@@ -47,20 +47,20 @@ public class RealStateController {
     @PutMapping("/{id}")
     public ResponseEntity<RealState> update(@PathVariable UUID id, @Valid @RequestBody RealState realState) {
         return repository.findById(id)
-            .map(existing -> {
-                realState.setId(id);
-                return ResponseEntity.ok(repository.save(realState));
-            })
-            .orElse(ResponseEntity.notFound().build());
+                .map(existing -> {
+                    realState.setId(id);
+                    return ResponseEntity.ok(repository.save(realState));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable UUID id) {
+        return repository.findById(id)
+                .map(existing -> {
+                    repository.deleteById(id);
+                    return ResponseEntity.noContent().<Void>build();
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
-/* 
- @DeleteMapping("/{id}")
-public ResponseEntity<Void> delete(@PathVariable UUID id) {
-    return repository.findById(id)
-        .map(existing -> {
-            repository.deleteById(id);
-            return ResponseEntity.<Void>noContent().build();
-        })
-        .orElse(ResponseEntity.<Void>notFound().build());*/

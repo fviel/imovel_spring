@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -22,6 +23,7 @@ import br.com.amitta.real_state.entities.RealState;
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@ActiveProfiles("test") // executa somente com o perfil de teste
 class RealStateControllerTest {
 
     @Autowired
@@ -38,6 +40,7 @@ class RealStateControllerTest {
     }
 
     @Test
+    
     void shouldCreateRealState() throws Exception {
         mockMvc.perform(post("/realstates")
                 .contentType(MediaType.APPLICATION_JSON)

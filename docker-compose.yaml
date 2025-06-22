@@ -4,6 +4,10 @@ services:
   postgres:
     image: postgres:17-alpine
     container_name: pgamitta
+    networks:
+      default:
+        aliases:
+          - pgamitta
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

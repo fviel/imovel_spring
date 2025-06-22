@@ -1,3 +1,21 @@
+# Antes eu estava utilizando a compilação passando o env no docker compose, mas o hikati nãoa ceitou, então estou retomando a versão 3
+# Versão 4
+#spring:
+#  profiles:
+#    active: dev
+
 spring:
-  profiles:
-    active: dev
+  datasource:
+    url: jdbc:postgresql://pgamitta:5432/postgres
+    username: sa_amitta
+    password: 1822
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      initialization-fail-timeout: 10000 # waits up to 10 seconds for DB conn
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect

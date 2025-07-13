@@ -183,3 +183,15 @@ Feel free to open issues or contribute with pull requests!
 ---
 
 Let me know if you'd like me to generate a Postman collection file (`.json`) to import directly, or add Swagger/OpenAPI docs for interactive testing.
+
+
+---
+TODO:
+🎉 Level up your project with:
+- 🧪 test coverage reports (Jacoco)
+- 📊 Swagger-generated OpenAPI doc export
+- 🧰 GitHub Actions for CI testing
+- 🌍 Docker Hub publishing
+
+
+clear;mvn clean test -Dspring.profiles.active=test

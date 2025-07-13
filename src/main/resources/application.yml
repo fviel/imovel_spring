@@ -1,4 +1,4 @@
-# Antes eu estava utilizando a compilação passando o env no docker compose, mas o hikati nãoa ceitou, então estou retomando a versão 3
+# Antes eu estava utilizando a compilação passando o env no docker compose, mas o hikari não aceitou, então estou retomando a versão 3
 # Versão 4
 #spring:
 #  profiles:

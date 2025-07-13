@@ -122,3 +122,50 @@ class RealStateControllerTest {
                 .andExpect(status().isBadRequest());
     }
 }
+
+/* 
+@Test
+void shouldGetRealStateById() throws Exception {
+    MvcResult result = mockMvc.perform(post("/realstates")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(sample)))
+            .andReturn();
+
+    RealState created = objectMapper.readValue(result.getResponse().getContentAsString(), RealState.class);
+
+    mockMvc.perform(get("/realstates/" + created.getId()))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.id").value(created.getId().toString()))
+            .andExpect(jsonPath("$.address").value(sample.getAddress()));
+}
+
+@Test
+void shouldReturnNotFoundWhenGettingNonExistentRealState() throws Exception {
+    UUID fakeId = UUID.randomUUID();
+    mockMvc.perform(get("/realstates/" + fakeId))
+            .andExpect(status().isNotFound());
+}
+
+@Test
+void shouldReturnBadRequestWhenGettingWithMalformedUUID() throws Exception {
+    mockMvc.perform(get("/realstates/not-a-uuid"))
+            .andExpect(status().isBadRequest());
+}
+
+@Test
+void shouldUpdateNonExistentRealStateReturnsNotFound() throws Exception {
+    UUID fakeId = UUID.randomUUID();
+    RealState update = new RealState(fakeId, "New Address", 12345.0, "Updated");
+    mockMvc.perform(put("/realstates/" + fakeId)
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(update)))
+            .andExpect(status().isNotFound());
+}
+
+@Test
+void shouldDeleteNonExistentRealStateReturnsNotFound() throws Exception {
+    UUID fakeId = UUID.randomUUID();
+    mockMvc.perform(delete("/realstates/" + fakeId))
+            .andExpect(status().isNotFound());
+}
+*/
